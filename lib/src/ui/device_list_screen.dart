@@ -7,10 +7,10 @@ import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
-import 'package:blerio/src/ble/ble_device_connector.dart';
-import 'package:blerio/src/ble/ble_scanner.dart';
-import 'package:blerio/src/routes/routes.gr.dart';
-import 'package:blerio/src/ui/device_interactor_screen.dart';
+import 'package:bleriomob/src/ble/ble_device_connector.dart';
+import 'package:bleriomob/src/ble/ble_scanner.dart';
+import 'package:bleriomob/src/routes/routes.gr.dart';
+import 'package:bleriomob/src/ui/device_interactor_screen.dart';
 
 @RoutePage()
 class DeviceListScreen extends StatelessWidget {

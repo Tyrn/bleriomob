@@ -2,7 +2,7 @@
 import 'package:auto_route/auto_route.dart';
 
 // Project imports:
-import 'package:blerio/src/routes/routes.gr.dart';
+import 'package:bleriomob/src/routes/routes.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Screen,Route')
 class AppRouter extends $AppRouter {

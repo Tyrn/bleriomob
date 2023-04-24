@@ -9,10 +9,10 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i5;
-import 'package:blerio/main.dart' as _i4;
-import 'package:blerio/src/ui/ble_status_screen.dart' as _i3;
-import 'package:blerio/src/ui/device_interactor_screen.dart' as _i1;
-import 'package:blerio/src/ui/device_list_screen.dart' as _i2;
+import 'package:bleriomob/main.dart' as _i4;
+import 'package:bleriomob/src/ui/ble_status_screen.dart' as _i3;
+import 'package:bleriomob/src/ui/device_interactor_screen.dart' as _i1;
+import 'package:bleriomob/src/ui/device_list_screen.dart' as _i2;
 import 'package:flutter/material.dart' as _i6;
 import 'package:flutter_reactive_ble/flutter_reactive_ble.dart' as _i7;
 

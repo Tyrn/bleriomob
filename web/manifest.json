@@ -1,6 +1,6 @@
 {
-    "name": "blerio",
-    "short_name": "blerio",
+    "name": "bleriomob",
+    "short_name": "bleriomob",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

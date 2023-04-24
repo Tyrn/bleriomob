@@ -7,13 +7,13 @@ import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
-import 'package:blerio/src/ble/ble_device_connector.dart';
-import 'package:blerio/src/ble/ble_device_interactor.dart';
-import 'package:blerio/src/ble/ble_scanner.dart';
-import 'package:blerio/src/ble/ble_status_monitor.dart';
-import 'package:blerio/src/routes/routes.dart';
-import 'package:blerio/src/ui/ble_status_screen.dart';
-import 'package:blerio/src/ui/device_list_screen.dart';
+import 'package:bleriomob/src/ble/ble_device_connector.dart';
+import 'package:bleriomob/src/ble/ble_device_interactor.dart';
+import 'package:bleriomob/src/ble/ble_scanner.dart';
+import 'package:bleriomob/src/ble/ble_status_monitor.dart';
+import 'package:bleriomob/src/routes/routes.dart';
+import 'package:bleriomob/src/ui/ble_status_screen.dart';
+import 'package:bleriomob/src/ui/device_list_screen.dart';
 import 'src/ble/ble_logger.dart';
 
 const _themeColor = Colors.lightGreen;

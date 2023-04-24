@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.blerio">
+    package="com.example.bleriomob">
    <application
-        android:label="blerio"
+        android:label="bleriomob"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

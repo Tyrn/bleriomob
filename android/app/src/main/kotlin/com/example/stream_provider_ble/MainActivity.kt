@@ -1,4 +1,4 @@
-package com.example.blerio
+package com.example.bleriomob
 
 import io.flutter.embedding.android.FlutterActivity
 

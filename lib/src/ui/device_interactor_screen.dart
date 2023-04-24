@@ -7,7 +7,7 @@ import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
-import 'package:blerio/src/ble/ble_device_interactor.dart';
+import 'package:bleriomob/src/ble/ble_device_interactor.dart';
 
 @RoutePage()
 class DeviceInteractorScreen extends StatelessWidget {
