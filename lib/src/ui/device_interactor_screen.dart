@@ -33,13 +33,11 @@ class DeviceInteractorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final connectionStateUpdate = Provider.of<ConnectionStateUpdate>(context);
+    final deviceInteractor = Provider.of<BleDeviceInteractor>(context);
     return Scaffold(
       body: Center(
-        child: Consumer2<ConnectionStateUpdate, BleDeviceInteractor>(
-          builder: (_, connectionStateUpdate, deviceInteractor, __) {
-            return _deviceInteractor(connectionStateUpdate, deviceInteractor);
-          },
-        ),
+        child: _deviceInteractor(connectionStateUpdate, deviceInteractor),
       ),
     );
   }
