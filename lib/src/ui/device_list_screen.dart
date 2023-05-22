@@ -17,20 +17,21 @@ class DeviceListScreen extends StatelessWidget {
   const DeviceListScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) =>
-      Consumer3<BleScanner, BleScannerState?, BleDeviceConnector>(
-        builder: (_, bleScanner, bleScannerState, bleDeviceConnector, __) =>
-            _DeviceList(
-          scannerState: bleScannerState ??
-              const BleScannerState(
-                discoveredDevices: [],
-                scanIsInProgress: false,
-              ),
-          startScan: bleScanner.startScan,
-          stopScan: bleScanner.stopScan,
-          deviceConnector: bleDeviceConnector,
-        ),
-      );
+  Widget build(BuildContext context) {
+    final bleScanner = Provider.of<BleScanner>(context);
+    final bleScannerState = Provider.of<BleScannerState?>(context);
+    final bleDeviceConnector = Provider.of<BleDeviceConnector>(context);
+    return _DeviceList(
+      scannerState: bleScannerState ??
+          const BleScannerState(
+            discoveredDevices: [],
+            scanIsInProgress: false,
+          ),
+      startScan: bleScanner.startScan,
+      stopScan: bleScanner.stopScan,
+      deviceConnector: bleDeviceConnector,
+    );
+  }
 }
 
 class _DeviceList extends StatefulWidget {
