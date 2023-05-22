@@ -15,24 +15,29 @@ class DeviceInteractorScreen extends StatelessWidget {
   const DeviceInteractorScreen({Key? key, required this.deviceId})
       : super(key: key);
 
+  dynamic _deviceInteractor(ConnectionStateUpdate connectionStateUpdate,
+      BleDeviceInteractor deviceInteractor) {
+    if (connectionStateUpdate.connectionState ==
+        DeviceConnectionState.connected) {
+      return DeviceInteractor(
+        deviceId: deviceId,
+        deviceInteractor: deviceInteractor,
+      );
+    } else if (connectionStateUpdate.connectionState ==
+        DeviceConnectionState.connecting) {
+      return const Text('connecting');
+    } else {
+      return const Text('error');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: Consumer2<ConnectionStateUpdate, BleDeviceInteractor>(
           builder: (_, connectionStateUpdate, deviceInteractor, __) {
-            if (connectionStateUpdate.connectionState ==
-                DeviceConnectionState.connected) {
-              return DeviceInteractor(
-                deviceId: deviceId,
-                deviceInteractor: deviceInteractor,
-              );
-            } else if (connectionStateUpdate.connectionState ==
-                DeviceConnectionState.connecting) {
-              return const Text('connecting');
-            } else {
-              return const Text('error');
-            }
+            return _deviceInteractor(connectionStateUpdate, deviceInteractor);
           },
         ),
       ),
