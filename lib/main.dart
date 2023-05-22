@@ -85,13 +85,12 @@ class HomeScreen extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Consumer<BleStatus?>(
-        builder: (_, status, __) {
-          if (status == BleStatus.ready) {
-            return const DeviceListScreen();
-          } else {
-            return BleStatusScreen(status: status ?? BleStatus.unknown);
-          }
-        },
-      );
+  Widget build(BuildContext context) {
+    final status = Provider.of<BleStatus?>(context);
+    if (status == BleStatus.ready) {
+      return const DeviceListScreen();
+    } else {
+      return BleStatusScreen(status: status ?? BleStatus.unknown);
+    }
+  }
 }
