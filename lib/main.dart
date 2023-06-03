@@ -18,27 +18,28 @@ import 'src/ble/ble_logger.dart';
 
 const _themeColor = Colors.lightGreen;
 
+final appRouter = AppRouter();
+
+final bleLogger = BleLogger();
+final ble = FlutterReactiveBle();
+final scanner = BleScanner(ble: ble, logMessage: bleLogger.addToLog); // S
+final monitor = BleStatusMonitor(ble); // S
+final connector = BleDeviceConnector(
+  ble: ble,
+  logMessage: bleLogger.addToLog,
+); // S
+final serviceDiscoverer = BleDeviceInteractor(
+  bleDiscoverServices: ble.discoverServices,
+  readCharacteristic: ble.readCharacteristic,
+  writeWithResponse: ble.writeCharacteristicWithResponse,
+  writeWithOutResponse: ble.writeCharacteristicWithoutResponse,
+  subscribeToCharacteristic: ble.subscribeToCharacteristic,
+  logMessage: bleLogger.addToLog,
+);
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final appRouter = AppRouter();
-
-  final bleLogger = BleLogger();
-  final ble = FlutterReactiveBle();
-  final scanner = BleScanner(ble: ble, logMessage: bleLogger.addToLog); // S
-  final monitor = BleStatusMonitor(ble); // S
-  final connector = BleDeviceConnector(
-    ble: ble,
-    logMessage: bleLogger.addToLog,
-  ); // S
-  final serviceDiscoverer = BleDeviceInteractor(
-    bleDiscoverServices: ble.discoverServices,
-    readCharacteristic: ble.readCharacteristic,
-    writeWithResponse: ble.writeCharacteristicWithResponse,
-    writeWithOutResponse: ble.writeCharacteristicWithoutResponse,
-    subscribeToCharacteristic: ble.subscribeToCharacteristic,
-    logMessage: bleLogger.addToLog,
-  );
   runApp(
     MultiProvider(
       providers: [
