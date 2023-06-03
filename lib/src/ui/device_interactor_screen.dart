@@ -4,13 +4,18 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
+import 'package:bleriomob/main.dart';
 import 'package:bleriomob/src/ble/ble_device_interactor.dart';
 
+// import 'package:provider/provider.dart';
+
+
 @RoutePage()
-class DeviceInteractorScreen extends StatelessWidget {
+class DeviceInteractorScreen extends ConsumerWidget {
   final String deviceId;
   const DeviceInteractorScreen({Key? key, required this.deviceId})
       : super(key: key);
@@ -32,9 +37,10 @@ class DeviceInteractorScreen extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final connectionStateUpdate = Provider.of<ConnectionStateUpdate>(context);
-    final deviceInteractor = Provider.of<BleDeviceInteractor>(context);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final connectionStateUpdate =
+        ref.watch(bleConnectionStateUpdateProvider).value!;
+    final deviceInteractor = serviceDiscoverer;
     return Scaffold(
       body: Center(
         child: _deviceInteractor(connectionStateUpdate, deviceInteractor),

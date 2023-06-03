@@ -4,23 +4,25 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_reactive_ble/flutter_reactive_ble.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
+import 'package:bleriomob/main.dart';
 import 'package:bleriomob/src/ble/ble_device_connector.dart';
 import 'package:bleriomob/src/ble/ble_scanner.dart';
 import 'package:bleriomob/src/routes/routes.gr.dart';
 import 'package:bleriomob/src/ui/device_interactor_screen.dart';
 
 @RoutePage()
-class DeviceListScreen extends StatelessWidget {
+class DeviceListScreen extends ConsumerWidget {
   const DeviceListScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final bleScanner = Provider.of<BleScanner>(context);
-    final bleScannerState = Provider.of<BleScannerState?>(context);
-    final bleDeviceConnector = Provider.of<BleDeviceConnector>(context);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final bleScanner = scanner;
+    final bleScannerState = ref.watch(bleScannerStateProvider).value;
+    final bleDeviceConnector = connector;
     return _DeviceList(
       scannerState: bleScannerState ??
           const BleScannerState(
