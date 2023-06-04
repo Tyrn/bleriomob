@@ -102,5 +102,5 @@ import_sorter:
   emojis: false
   comments: true
   ignored_files:
-    - \/.*gr\.dart
-    - \/.*freezed\.dart
+    - \/.*\.gr\.dart
+    - \/.*\.freezed\.dart
