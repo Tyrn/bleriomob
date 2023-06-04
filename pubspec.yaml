@@ -98,3 +98,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+import_sorter:
+  emojis: false
+  comments: true
+  ignored_files:
+    - \/.*gr\.dart
+    - \/.*freezed\.dart
