@@ -11,9 +11,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:bleriomob/main.dart';
 import 'package:bleriomob/src/ble/ble_device_interactor.dart';
 
-// import 'package:provider/provider.dart';
-
-
 @RoutePage()
 class DeviceInteractorScreen extends ConsumerWidget {
   final String deviceId;
